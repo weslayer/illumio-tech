@@ -7,7 +7,10 @@ In this assessment, I will be:
 * Outputting the occurences of the combination of dstport, protocol
 * Outputting the occurences for tags
 
-To run this project, simply enter `python main.py` in the main `illumio-tech` directory
+To run this project, 
+1. Input desired flow logs in the input directory
+2. Input desired mappings in the mappings directory
+3. Run `python main.py` in the main `illumio-tech` directory terminal
 
 Thank you to my interviewers that will be reading this `:D`
 
