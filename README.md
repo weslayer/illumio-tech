@@ -50,6 +50,20 @@ Thank you to my interviewers that will be reading this `:D`
 3. ProcessingResults dataclass:
    * Holds the final tag_counts and port_protocol_counts
   
+### Testing
+
+I used `pytest` for testing which allows for module testing in Python. 
+
+I tested many cases and functions:
+* creation of testing files
+* parsing flow logs
+* protocol number -> protocol name
+* expected tag count
+* untagged flow logs
+* mixed tags
+* unknown protocol
+* empty flow log file
+  
 ### Considerations
   
 * There currently is no easy way to convert the protocol numbers to its respective name,
