@@ -103,6 +103,7 @@ def write_results(output_dir: Path, results: Results) -> None:
     with open(output_dir / 'tag_counts.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Tag', 'Count'])
+        # sort for consistency
         for tag, count in sorted(results.tag_counts.items()):
             writer.writerow([tag, count])
 
@@ -110,6 +111,7 @@ def write_results(output_dir: Path, results: Results) -> None:
     with open(output_dir / 'port_protocol_counts.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Port', 'Protocol', 'Count'])
+        # sort for consistency
         for (port, protocol), count in sorted(results.port_protocol_counts.items()):
             writer.writerow([port, protocol, count])
 
@@ -121,7 +123,7 @@ def main():
     mappings = Path('mappings')
     
     # Process files
-    tag_mappings = load_tag_mappings(mappings / 'tag_mappings.csv')
+    tag_mappings = load_tag_mappings(mappings)
     results = process_flow_logs(input_dir, 'flow_logs.txt', tag_mappings)
     write_results(output_dir, results)
 
