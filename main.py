@@ -69,8 +69,10 @@ def get_protocol_name(protocol_num: int) -> str:
                  for n in dir(socket)
                  if n.startswith("IPPROTO_")
                  )
-    protocol_name = protocol_table.get(protocol_num, str(protocol_num))
-    return protocol_name[8:].lower() # strip IPPROTO_ from name
+    protocol_name = protocol_table.get(protocol_num)
+    if not protocol_name:
+        return "unknown"
+    return protocol_name[8:].lower()
 
 def process_flow_logs(input_dir: Path, log_file: str, tag_mappings: Dict[Tuple[int, str], str]) -> Results:
     """Main function that processes the logs and increments the tags and port/protocol combinations."""
